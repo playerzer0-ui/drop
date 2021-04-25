@@ -1,0 +1,92 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://Minecraft.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://right.png" type="Texture" id=2]
+[ext_resource path="res://left.png" type="Texture" id=3]
+[ext_resource path="res://howto.gd" type="Script" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 32
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 1 )
+
+[node name="howto" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 16.0
+margin_top = 136.0
+margin_right = 348.0
+margin_bottom = 207.0
+custom_fonts/font = SubResource( 1 )
+text = "Click 'left' to go left
+Click 'right' to go right"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="meh" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 280.0
+margin_right = 340.0
+margin_bottom = 351.0
+custom_fonts/font = SubResource( 1 )
+text = "left keypad          right keypad"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="left" type="Sprite" parent="."]
+position = Vector2( 88, 240 )
+texture = ExtResource( 3 )
+
+[node name="right" type="Sprite" parent="."]
+position = Vector2( 160, 240 )
+texture = ExtResource( 2 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+margin_left = 8.0
+margin_top = 448.0
+margin_right = 312.0
+margin_bottom = 536.0
+custom_fonts/normal_font = SubResource( 2 )
+bbcode_enabled = true
+bbcode_text = "[shake rate=5 level=10]Descend as low as possible![/shake]"
+text = "Descend as low as possible!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="."]
+margin_left = 16.0
+margin_top = 592.0
+margin_right = 128.0
+margin_bottom = 630.0
+custom_fonts/font = SubResource( 3 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+text = "return"
+flat = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]
